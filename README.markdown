@@ -1,0 +1,6 @@
+This repository contains slides and code for a talk I will give on the [Girlsday 2012](http://www.girls-day.de/) in cooperation with the Gender Equality Bureau of the Saarland University.
+
+All content, unless stated otherwise, is under CC-BY-NC-SA licence. This means you can use it however you like, as long as you credit me, don't make any money with it and redistribute your content under the same licence. For legalese details, please see 
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Bilder in Weniger als Tausend Worten</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/adrianN/girlsday" property="cc:attributionName" rel="cc:attributionURL">Adrian Neumann</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License</a>.
