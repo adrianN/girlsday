@@ -1,0 +1,158 @@
+\documentclass{beamer}
+\usepackage{textcomp}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+
+\usetheme{Berlin}
+\useoutertheme{infolines}
+\usefonttheme{professionalfonts}
+\usecolortheme{seahorse}
+\usecolortheme{rose}
+
+%\setbeamercovered{transparent}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+\theoremstyle{example}
+\newtheorem{ex}{Beispiel}
+\renewenvironment{example}{\begin{ex}}{\end{ex}}
+
+
+\title{Bilder In Weniger Als Tausend Worten}
+\subtitle{Girlsday 2012}
+\institute{Universit\"at des Saarlandes}
+\date{}
+\author[A. Neumann]{
+	Adrian Neumann
+}
+
+
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Rechnen}
+\begin{frame}{Introduction}
+Manipulation eines Speichers nach festen Regeln
+\begin{itemize}
+\item Mathe auf Papier
+\item Programme in Computern
+\end{itemize}
+\begin{block}{}\centering
+Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
+\end{block}
+\end{frame}
+
+\subsection{Beispiel:Game of Life}
+\begin{frame}{Beispiel: Game of Life}
+\begin{itemize}
+\item Speicher: 
+  \begin{itemize}
+    \item 2D-Gitter
+    \item Zellen sind ``lebendig'' (schwarz) oder ``tot'' (weiß)
+  \end{itemize}
+\item Regeln
+  \begin{itemize}
+  \item Lebendig $\rightarrow$ Tot: $<2$ oder $>3$ lebendige Nachbarn
+  \item Lebendig $\rightarrow$ Lebendig: $2-3$ lebendige Nachbarn
+  \item Tot $\rightarrow$ Lebendig: 3 lebendige Nachbarn
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel: Game of Life}
+  TODO schicke Bilder
+\end{frame}
+
+\section{Arbeiten mit ``Sprachen''}
+\begin{frame}
+  \begin{definition}
+    \begin{description}
+    \item[Alphabet] Endliche Menge von ``Buchstaben''
+    \item[Wort] Endliche Sequenz von Buchstaben
+    \item[Sprache] Menge von Wörtern (i.\,d.\,R.\ unendlich)
+    \end{description}
+  \end{definition}
+  \begin{example}
+    \begin{description}
+    \item[Alphabet] $\Sigma = \{ (,)\}$
+    \item[Wort] $()(())$ oder $((())$
+    \item[Sprache] $L=\{w | \text{$w$ ist ein korrekt geklammert}\}$
+    \end{description}
+  \end{example}
+\end{frame}
+
+\subsection{Grammatiken}
+\begin{frame}{Grammatiken}
+  \begin{itemize}
+  \item Einfache Regeln zum Beschreiben von Sprachen
+  \item ``Grammatik'' wie in der Schule: Irreführend
+  \item Zwei Arten von Symbolen:
+    \begin{itemize}
+    \item Buchstaben (\emph{Terminalzeichen}): hier Kleinbuchstaben $a,b,c$
+    \item Platzhalter (\emph{Nichtterminalzeichen}): hier Großbuchstaben $A,B,C$
+
+      Ein Nichtterminalzeichen ist besonders: Das \emph{Startsymbol}
+    \end{itemize}
+  \item Regeln um Wörter zu erzeugen
+  \item Sprache: Menge aller Wörter, die man mit der Grammatik erzeugen kann
+  \end{itemize}
+\end{frame}
+
+\subsection{Produktionsregeln}
+\begin{frame}{Produktionsregeln}
+  \begin{itemize}
+  \item Regeln haben die Form
+    \[\text{\textit{String}}_1 \longrightarrow \text{\textit{String}}_2\]
+  \item Darf linke Seite durch rechte Seite ersetzen
+  \item Angefangen wird mit dem Startsymbol
+  \item Prozess ist abgeschlosesn, wenn kein Nichtterminal übrig ist
+  \item Heute: \emph{Kontextfreie} Grammatiken
+
+    \textit{String$_1$} ist genau ein Nichtterminal
+  \end{itemize}
+\end{frame}
+
+\subsection{Beispiel: Klammerausdrücke}
+\begin{frame}{Beispiel}
+  \begin{itemize}
+  \item Schon gesehen:$\Sigma = \{(,)\}$ und  $L = \{ w | \text{$w$ ist korrekt geklammert}\}$
+  \item Grammatik:
+    \begin{columns}[l]
+     \column{2cm}
+    \begin{align*}
+      S &\rightarrow ()\\
+      S &\rightarrow SS\\
+      S &\rightarrow (S)
+    \end{align*}
+     \column{6cm}
+     \begin{ex}
+       \vspace*{5cm}
+       \hspace*{6cm}
+     \end{ex}
+    \end{columns}
+  \end{itemize}
+\end{frame}
+
+\subsection{Mehr als Buchstaben}
+\begin{frame}{Mehr als Buchstaben}
+  \begin{itemize}
+  \item Besonderes Alphabet
+    \begin{itemize}
+    \item Geometrische Primitive (Rechteck, Dreieck, Ellipse)
+    \item Rotationen
+    \item Skalierungen
+    \item Translationen
+    \item Farbveränderungen
+    \end{itemize}
+  \item Grammatik regelt, wie daraus Bilder erzeugt werden
+  \end{itemize}
+\end{frame}
+\end{document}
