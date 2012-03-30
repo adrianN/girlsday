@@ -11,7 +11,20 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage[scaled]{luximono}
+\usepackage{tikz}
 
+\tikzset{
+  every overlay node/.style={
+    draw=white,fill=white,rounded corners,anchor=north west,
+  },
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+   \tikz[baseline,overlay]\node[every overlay node]
+}%
 
 \usetheme{Berlin}
 \useoutertheme{infolines}
@@ -39,7 +52,7 @@
 
 \begin{document}
 \lstdefinelanguage{cf}{morekeywords={shape,rule,CF,startshape,SQUARE,CIRCLE,TRIANGLE}, sensitive=true}
-\lstset{basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\tiny, language=cf}
+\lstset{basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\tiny, language=cf, tabsize=2}
 \frame{\titlepage}
 
 \section{Rechnen}
@@ -88,7 +101,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \end{frame}
 
 \section{Arbeiten mit ``Sprachen''}
-\begin{frame}
+\begin{frame}{Sprachen}
   \begin{definition}
     \begin{description}
     \item[Alphabet:] Endliche Menge von ``Buchstaben''
@@ -175,7 +188,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \end{frame}
 
 \subsection{Context-Free Art}
-\begin{frame}[fragile]{Beispiel}
+\begin{frame}[fragile]{Kompliziertes Beispiel}
 \begin{columns}
 \column{4cm}
 \footnotesize{
@@ -205,7 +218,23 @@ rule {
 \hfill CC-BY-SA 3.0 zol
 \end{frame}
 
-\begin{frame}{Steueranweisungen}
+\newsavebox\mybox
+
+\begin{lrbox}{\mybox}
+\begin{lstlisting}[name=beispiel]
+CF::Background = [b -1]
+startshape T[
+  b 1 a -1 sat 1 h 310
+]
+\end{lstlisting}
+\end{lrbox}
+
+\begin{frame}[fragile]{Steueranweisungen}
+
+\tikzoverlay at (8cm, 1cm) {
+\usebox\mybox
+};
+
 Einstellungen für das ganze Bild:
   \begin{itemize}
   \item Beginnen mit \lstinline!CF::!
@@ -224,14 +253,76 @@ Startsymbol:
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Nichtterminale}
+\begin{frame}{Terminale}
+\begin{columns}
+\column{5cm}
+  Drei verschiedene Terminale:
+  \begin{enumerate}
+  \item \lstinline!CIRCLE!
+  \item \lstinline!SQUARE!
+  \item \lstinline!TRIANGLE!
+  \end{enumerate}
+ \begin{itemize}
+ \item Alle haben Seitenlänge 1
+ \item Alle werden zentriert an $(0,0)$ gezeichnet
+ \end{itemize}
+\column{5cm}
+ \begin{center}
+   \fbox{\includegraphics[width=\linewidth]{./images/Shape_demo.png}}\\\bigskip
+   Code für dieses Bild: Übung!
+ \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Terminale: Beispiel}
+  \begin{columns}
+    \column{3cm}
+    \lstinline!startshape CIRCLE[]!
+    \begin{center}
+    \fbox{\includegraphics[width=0.8\linewidth]{./images/circle.png}}
+    \end{center}
+    \column{3cm}
+    \lstinline!startshape SQUARE[]!
+    \begin{center}
+    \fbox{\includegraphics[width=0.8\linewidth]{./images/square.png}}
+    \end{center}
+    \column{3cm}
+    \lstinline!startshape TRIANGLE[]!
+    \begin{center}
+    \fbox{\includegraphics[width=0.8\linewidth]{./images/triangle.png}}
+    \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{lrbox}{\mybox}
+\begin{lstlisting}[name=beispiel]
+shape T
+rule {
+  SQUARE[x .5 y -.05 s 1 .1]
+  CIRCLE[x 1.77 y .13 s .5]
+  T[r -2.07028 s 0.298966
+    a .1 h 90 sat -.3]
+  T[x 1 r 45.9297 s .324258
+    a .1 sat .1]
+  T[x 1.72574 y .806014
+    r -48 s .922]
+} 
+\end{lstlisting}
+\end{lrbox}
+
+
+\begin{frame}[fragile]{Nichtterminale}
+
+\tikzoverlay at (7.5cm, 1cm) {
+\usebox\mybox
+};
   \begin{itemize}
   \item Heißen jetzt \lstinline!shape!
-  \item Produktionsregeln werden mit \lstinline!rule! definiert.
+  \item Produktionsregeln: \lstinline!rule {...}! 
   \item Im Beispiel
     \begin{itemize}
-    \item Ein Nichtterminal: \lstinline!T!
-    \item Eine Produktionsregel: Ein \lstinline!T! wird ersetzt durch
+    \item Nichtterminal: \lstinline!T!
+    \item Produktionsregel: Ersetze \lstinline!T! durch
       \begin{itemize}
       \item Ein Viereck \lstinline!SQUARE!
       \item Einen Kreis \lstinline!CIRCLE!
@@ -244,22 +335,14 @@ Startsymbol:
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Terminale}
+\begin{frame}[fragile]{Nichtterminale: Beispiel}
 \begin{columns}
-\column{4cm}
-  Drei verschiedene Terminale:
-  \begin{enumerate}
-  \item \lstinline!CIRCLE!
-  \item \lstinline!SQUARE!
-  \item \lstinline!TRIANGLE!
-  \end{enumerate}
- Alle haben Seitenlänge 1
-\column{6cm}
-\begin{center}
-\fbox{\includegraphics[width=\linewidth]{./images/Shape_demo.png}}\\\bigskip
-Code für dieses Bild: Übung!
-\end{center}
-
+  \column{4cm}
+  \lstinputlisting{./code/circle_triangle.cf}
+  \column{4cm}
+  \begin{center}
+    \fbox{\includegraphics[width=\linewidth]{./images/circle_triangle.png}}
+  \end{center}
 \end{columns}
 \end{frame}
 
@@ -267,8 +350,15 @@ Code für dieses Bild: Übung!
   \begin{itemize}
   \item Für Matheprofis: Affine Transformation + Farbveränderung
   \item Hinter jedem Element, eckige Klammern mit Anweisungen
-  \item Notationsreihenfolge egal. Immer: 1. Verschieben, 2. Rotieren, 3. Skalieren, 4. Reflektieren
+  \item Notationsreihenfolge egal. Immer:
+    \begin{enumerate}
+    \item Verschieben
+    \item Rotieren
+    \item Skalieren
+    \item Reflektieren
+    \end{enumerate}
   \item Doppelte Klammern: Reihenfolge zählt
+  \item Werden angewendet \emph{nachdem} das Element fertig gezeichnet ist
   \end{itemize}
 \end{frame}
 
@@ -281,14 +371,103 @@ Code für dieses Bild: Übung!
   \item[Reflektieren] \lstinline!f! (flip) mit Winkel dahinter: Reflektion an Ursprungsgeraden
   \end{description}
 \end{block}
-\begin{block}{Übersicht: Farbe}
-  \begin{description}
-  \item[Farbton]
-  \item[Sättigung]
-  \item[Helligkeit]
-  \item[Transparenz] 
-  \end{description}
-\end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Transformationen: Beispiel}
+  \begin{columns}
+    \column{3cm}
+    \lstinputlisting{./code/transformation1.cf}
+    \begin{center}
+      \fbox{\includegraphics[width=\linewidth]{./images/transformation1.png}}
+    \end{center}
+    \column{3cm}
+    \lstinputlisting{./code/transformation2.cf}
+    \vspace{-0.75cm}
+    \begin{center}
+      \fbox{\includegraphics[width=\linewidth]{./images/transformation2.png}}
+    \end{center}
+    \column{3cm}
+    \lstinputlisting{./code/transformation3.cf}
+    \begin{center}
+      \fbox{\includegraphics[width=\linewidth]{./images/transformation3.png}}
+    \end{center}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}{Transformationen}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{./images/HSV.png}
+\end{center}
+\hfill{{\tiny CC-BY-SA Wikipedia User SharkD}}
+\end{frame}
+
+\begin{frame}{Transformationen}
+\begin{block}{Übersicht: Farbe}
+  \begin{description}
+  \item[Farbton] \lstinline!h! {\small $n$}, $n\in [0,359]$. 
+  \item[Sättigung] \lstinline!sat! {\small $n$}, $n\in [-1,1]$. 
+  \item[Helligkeit] \lstinline!b! {\small $n$}, $n\in [-1,1]$.
+  \item[Transparenz] \lstinline!a! {\small $n$}, $n\in [-1,1]$.
+  \end{description}
+\end{block}
+Alternative Form: Zwei Zahlen. Zum Beispiel \lstinline!h! {\small $p$ $z$}, $p\in [-1,1]$:\\ Farbton in Richtung $z$ ändern.
+
+\alert{Achtung:} Für \lstinline!CF::Background! und \lstinline!startshape! werden absolute Werte gesetzt.
+\end{frame}
+
+\begin{frame}{Transformationen: Beispiel}
+  \begin{columns}
+   \column{6cm}
+   \lstinputlisting{./code/transformation5.cf}
+   \column{4cm}
+  \begin{center}
+    \fbox{\includegraphics[width=\linewidth]{./images/transformation5.png}}
+  \end{center} 
+  \end{columns}   
+\end{frame}
+
+\begin{frame}{Regeln mit Nichtterminalen}
+Transformationen werden \emph{nach} dem Zeichnen angewendet\\
+$\longrightarrow$ Können sich ``stapeln''
+\begin{columns}
+\column{6cm}
+\lstinputlisting{./code/rekursion2.cf}
+\column{4cm}
+\begin{center}
+\fbox{\includegraphics[width=\linewidth]{./images/rekursion2.png}}
+\end{center}
+\end{columns}\medskip
+In jeder Ersetzung $1.2$-Mal heller, $0.8$-Mal kleiner.
+\end{frame}
+
+\begin{frame}{Regeln mit Nichtterminalen}
+  Besonders verwirrend: Koordinatensystem ändert sich!
+\begin{columns}
+\column{6cm}
+\lstinputlisting{./code/rekursion1.cf}
+\column{4cm}
+\begin{center}
+  \fbox{\includegraphics[width=\linewidth]{./images/rekursion1.png}}
+\end{center}
+\end{columns}\medskip
+Verschieben immer nach unten, aber im rotierten Koordinatensystem.
+\end{frame}
+
+\begin{frame}{Regeln mit Nichtterminalen}
+  Skalierungen: nach dem Verschieben angewendet
+  \begin{columns}
+    \column{5cm}
+    \lstinputlisting{./code/scaling_wrong.cf}
+    \begin{center}
+      \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_wrong.png}}
+    \end{center}
+    \column{5cm}
+    \lstinputlisting{./code/scaling_right.cf}
+    \begin{center}
+      \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_right.png}}
+    \end{center}
+  \end{columns}
+
+\end{frame}
 \end{document}
