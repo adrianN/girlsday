@@ -1,0 +1,7 @@
+startshape S[r 45 f 60]
+
+shape S
+rule {
+  CIRCLE[]
+  TRIANGLE[x 1 r 30]
+}

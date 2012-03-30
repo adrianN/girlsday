@@ -1,0 +1,14 @@
+startshape S []
+
+shape S
+rule {
+  CIRCLE [
+    x -0.25 y -0.5 b 1 h 0 sat 1 a -0.5
+  ]
+  CIRCLE [
+    x 0.25 y -0.5 b 1 h 120 sat 1 a -0.5
+  ]
+  CIRCLE [
+    b 1 h 240 sat 1 a -0.5
+  ]
+}

@@ -1,0 +1,7 @@
+startshape S[]
+
+shape S
+rule {
+	CIRCLE[]
+	S [x 1 s 0.25]
+}

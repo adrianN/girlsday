@@ -1,0 +1,9 @@
+startshape S[]
+
+shape S
+rule {
+  CIRCLE[]
+  TRIANGLE[
+	x 1 y 1 s 0.5
+  ]
+}

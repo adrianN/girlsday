@@ -1,0 +1,7 @@
+startshape S[]
+
+shape S
+rule {
+	CIRCLE []
+	TRIANGLE [b 1 h 100 sat 1]
+}

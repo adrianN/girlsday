@@ -1,0 +1,7 @@
+startshape S [b 1 sat 1]
+
+shape S
+rule {
+	CIRCLE []
+	S [y -0.99 r 10 s 0.99 h 10]
+}
