@@ -101,7 +101,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \end{frame}
 
 \section{Arbeiten mit ``Sprachen''}
-\begin{frame}{Sprachen}
+\begin{frame}{Sprache}
   \begin{definition}
     \begin{description}
     \item[Alphabet:] Endliche Menge von ``Buchstaben''
@@ -187,7 +187,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
   \end{itemize}
 \end{frame}
 
-\subsection{Context-Free Art}
+\section{Context-Free Art}
 \begin{frame}[fragile]{Kompliziertes Beispiel}
 \begin{columns}
 \column{4cm}
@@ -395,6 +395,24 @@ rule {
 
 \end{frame}
 
+\begin{frame}{Transformationen: Beispiel}
+  Skalierungen: nach dem Verschieben angewendet
+  \begin{columns}
+    \column{5cm}
+    \lstinputlisting{./code/scaling_wrong.cf}
+    \begin{center}
+      \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_wrong.png}}
+    \end{center}
+    \column{5cm}
+    \lstinputlisting{./code/scaling_right.cf}
+    \begin{center}
+      \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_right.png}}
+    \end{center}
+  \end{columns}
+
+\end{frame}
+
+
 \begin{frame}{Transformationen}
 \begin{center}
 \includegraphics[width=0.7\linewidth]{./images/HSV.png}
@@ -454,20 +472,46 @@ In jeder Ersetzung $1.2$-Mal heller, $0.8$-Mal kleiner.
 Verschieben immer nach unten, aber im rotierten Koordinatensystem.
 \end{frame}
 
-\begin{frame}{Regeln mit Nichtterminalen}
-  Skalierungen: nach dem Verschieben angewendet
+\begin{frame}{Zufall}
+Bei mehreren Produktionsregeln: Zufällige Auswahl. 
   \begin{columns}
+    \onslide*<1>{
     \column{5cm}
-    \lstinputlisting{./code/scaling_wrong.cf}
-    \begin{center}
-      \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_wrong.png}}
-    \end{center}
+    \lstinputlisting{./code/randomness2.cf}
     \column{5cm}
-    \lstinputlisting{./code/scaling_right.cf}
     \begin{center}
-      \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_right.png}}
+      \fbox{\includegraphics[width=0.9\linewidth]{./images/randomness2.png}}
     \end{center}
+    }
+    \onslide*<2>{
+    \column{5cm}
+    \lstinputlisting{./code/randomness3.cf}
+    \column{5cm}
+    \begin{center}
+      \fbox{\includegraphics[width=0.9\linewidth]{./images/randomness3.png}}
+    \end{center}
+  }
   \end{columns}
-
+  
 \end{frame}
+
+\begin{frame}{Übungen}
+  \begin{columns}
+    \column{3cm}
+    \fbox{\includegraphics[width=\linewidth]{./images/exercise1.png}}
+    \column{3cm}
+    \fbox{\includegraphics[width=\linewidth]{./images/exercise2.png}}
+    \column{3cm}
+    \fbox{\includegraphics[width=\linewidth]{./images/exercise3.png}}
+  \end{columns}
+  \begin{columns}
+    \column{3cm}
+    \fbox{\includegraphics[width=\linewidth]{./images/exercise4.png}}
+    \column{3cm}
+    \fbox{\includegraphics[width=\linewidth]{./images/exercise5.png}}
+    \column{3cm}
+    \fbox{\includegraphics[width=\linewidth]{./images/exercise6.png}}
+  \end{columns}
+\end{frame}
+
 \end{document}
