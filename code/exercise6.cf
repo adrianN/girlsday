@@ -1,0 +1,18 @@
+CF::Background = [b -1]
+
+startshape S [f 0 b 1]
+
+shape S
+rule 100 {
+	SQUARE[]
+	S [y -0.99 r 2 s 0.99 h 0.01 120 sat 0.01]
+}
+rule 100 {
+	SQUARE[]
+	S [y -0.99 r -2 s 0.99h 0.01 120 sat 0.01]
+}
+
+rule 10 {
+	S [r 15]
+	S [r -15]
+}

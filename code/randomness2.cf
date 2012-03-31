@@ -1,0 +1,11 @@
+startshape S [b 1 sat 1]
+
+shape S 
+rule {
+	CIRCLE[h 120]
+	S [y 0.98 r 25 s 0.98]
+}
+rule {
+	TRIANGLE[]
+	S [y 0.98 r -25 s 0.98]
+}

@@ -1,0 +1,20 @@
+startshape S [b 1 sat 1]
+
+shape S 
+rule {
+	CIRCLE[]
+	A [[x -0.5 s 0.85 x -0.5]]
+	B [[x 0.5 s 0.85 x 0.5]]
+}
+
+shape A
+rule {
+	CIRCLE []
+	A [[x -0.5 s 0.85 x -0.5 h 0.1 120]]
+}
+
+shape B
+rule {
+	CIRCLE []
+	B [[x 0.5 s 0.85 x 0.5 h 0.1 120]]
+}

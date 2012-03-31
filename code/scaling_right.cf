@@ -3,5 +3,5 @@ startshape S[]
 shape S
 rule {
 	CIRCLE[]
-	S [[x 0.5 s 0.25 x 0.5]]
+	CIRCLE[[x 0.5 s 0.25 x 0.5]]
 }
