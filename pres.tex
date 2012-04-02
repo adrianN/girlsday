@@ -57,10 +57,11 @@
 
 \section{Rechnen}
 \begin{frame}{Rechnen}
-Manipulation eines Speichers nach festen Regeln
+Manipulation eines Speichers nach festen Regeln\pause
 \begin{itemize}
-\item Mathe auf Papier
-\item Programme in Computern
+\item Mathe auf Papier\pause
+\item Programme in Computern\pause
+\item Billiardbälle auf einem Billiardtisch\pause
 \end{itemize}
 \begin{block}{}\centering
 Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
@@ -72,16 +73,16 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \begin{itemize}
 \item Speicher: 
   \begin{itemize}
-    \item 2D-Gitter
-    \item Zellen sind ``lebendig'' (weiß) oder ``tot'' (schwarz)
+    \item 2D-Gitter\pause
+    \item Zellen sind ``lebendig'' (weiß) oder ``tot'' (schwarz)\pause
   \end{itemize}
-\item Regeln
+\item Regeln\pause
   \begin{itemize}
-  \item Lebendig $\rightarrow$ Tot: $<2$ oder $>3$ lebendige Nachbarn
-  \item Lebendig $\rightarrow$ Lebendig: $2-3$ lebendige Nachbarn
+  \item Lebendig $\rightarrow$ Tot: $<2$ oder $>3$ lebendige Nachbarn\pause
+  \item Lebendig $\rightarrow$ Lebendig: $2$-$3$ lebendige Nachbarn\pause
   \item Tot $\rightarrow$ Lebendig: 3 lebendige Nachbarn
   \end{itemize}
-\end{itemize}
+\end{itemize}\pause
 \begin{block}{}\centering
 \centering In Game of Life kann ein beliebiger Computer simuliert werden.
 \end{block}
@@ -108,7 +109,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
     \item[Wort:] Endliche Sequenz von Buchstaben
     \item[Sprache:] Menge von Wörtern (i.\,d.\,R.\ unendlich)
     \end{description}
-  \end{definition}
+  \end{definition}\pause
   \begin{example}
     \begin{description}
     \item[Alphabet:] $\Sigma = \{ (,)\}$
@@ -122,16 +123,16 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \subsection{Grammatiken}
 \begin{frame}{Grammatiken}
   \begin{itemize}
-  \item Einfache Regeln zum Beschreiben von Sprachen
-  \item ``Grammatik'' wie in der Schule: Irreführend
-  \item Zwei Arten von Symbolen:
+  \item Einfache Regeln zum Beschreiben von Sprachen\pause
+  \item ``Grammatik'' wie in der Schule: Irreführend\pause
+  \item Zwei Arten von Symbolen:\pause
     \begin{itemize}
     \item Buchstaben (\emph{Terminalzeichen}): hier Kleinbuchstaben $a,b,c$
     \item Platzhalter (\emph{Nichtterminalzeichen}): hier Großbuchstaben $A,B,C$
-
-      Ein Nichtterminalzeichen ist besonders: Das \emph{Startsymbol}
+\pause\par
+      Ein Nichtterminalzeichen ist besonders: Das \emph{Startsymbol}\pause
     \end{itemize}
-  \item Regeln um Wörter zu erzeugen
+  \item Regeln um Wörter zu erzeugen\pause
   \item Sprache: Menge aller Wörter, die man mit der Grammatik erzeugen kann
   \end{itemize}
 \end{frame}
@@ -139,22 +140,23 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \subsection{Produktionsregeln}
 \begin{frame}{Produktionsregeln}
   \begin{itemize}
-  \item Regeln haben die Form
+  \item\onslide<1-> Regeln haben die Form
     \[\text{\textit{String}}_1 \longrightarrow \text{\textit{String}}_2\]
-  \item Darf linke Seite durch rechte Seite ersetzen
-  \item Angefangen wird mit dem Startsymbol
-  \item Prozess ist abgeschlosesn, wenn kein Nichtterminal übrig ist
+  \item\onslide<2-> Darf linke Seite durch rechte Seite ersetzen
+  \item\onslide<3-> Angefangen wird mit dem Startsymbol
+  \item\onslide<4-> Prozess ist abgeschlossen, wenn kein Nichtterminal übrig ist
   \end{itemize}
+\onslide<5->{
 \hspace{2cm} Heute: \emph{Kontextfreie} Grammatiken
 
 \hspace{2cm} \textit{String$_1$} ist genau ein Nichtterminal
-
+}
 \end{frame}
 
 \subsection{Beispiel: Klammerausdrücke}
 \begin{frame}{Beispiel}
   \begin{itemize}
-  \item Schon gesehen: $\Sigma = \{(,)\}$ und  $L = \{ w | \text{$w$ ist korrekt geklammert}\}$
+  \item Schon gesehen: $\Sigma = \{(,)\}$ und  $L = \{ w | \text{$w$ ist korrekt geklammert}\}$\pause
   \item Grammatik:
     \begin{columns}[l]
      \column{2cm}
@@ -162,7 +164,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
       S &\rightarrow ()\\
       S &\rightarrow SS\\
       S &\rightarrow (S)
-    \end{align*}
+    \end{align*}\pause
      \column{6cm}
      \begin{ex}
        \vspace*{5cm}
@@ -172,16 +174,31 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Anwendungen}
+  \begin{itemize}
+  \item Computerlinguistik\pause
+  \item Programmiersprachen\pause
+  \item Theoretische Informatik\pause
+    \begin{itemize}
+    \item Wie ``aufwendig'' ist es festzustellen ob $w\in L$?\pause
+    \item Ist $L = \{w | \text{$w$ ist korrekt geklammert}\}$ ``schwieriger'' als $L = \{w | \text{$w$ ist eine wahre Aussage}\}$?\pause
+    \item Gibt es Sprachen, für die man gar nicht feststellen kann ob $w\in L$?
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+
 \subsection{Mehr als Buchstaben}
 \begin{frame}{Mehr als Buchstaben}
   \begin{itemize}
-  \item Besonderes Alphabet
+  \item Besonderes Alphabet\pause
     \begin{itemize}
-    \item Geometrische Primitive (Rechteck, Dreieck, Ellipse)
-    \item Rotationen
-    \item Skalierungen
-    \item Translationen
-    \item Farbveränderungen
+    \item Geometrische Primitive (Rechteck, Dreieck, Kreis)\pause
+    \item Rotationen\pause
+    \item Skalierungen\pause
+    \item Translationen\pause
+    \item Farbveränderungen\pause
     \end{itemize}
   \item Grammatik regelt, wie daraus Bilder erzeugt werden
   \end{itemize}
@@ -190,7 +207,7 @@ Informatiker untersuchen einfache Regelsysteme mit kompliziertem Verhalten
 \section{Context-Free Art}
 \begin{frame}[fragile]{Kompliziertes Beispiel}
 \begin{columns}
-\column{4cm}
+\onslide<2>\column{4cm}
 \footnotesize{
 \begin{lstlisting}
 CF::Background = [b -1]
@@ -211,7 +228,7 @@ rule {
 } 
 \end{lstlisting}
 }
-\column{6cm}
+\onslide<1->\column{6cm}
 \hfill\includegraphics[width=\linewidth]{./images/beispiel.png}
 \end{columns}
 \tiny
@@ -235,18 +252,18 @@ startshape T[
 \usebox\mybox
 };
 
-Einstellungen für das ganze Bild:
+Einstellungen für das ganze Bild:\pause
   \begin{itemize}
-  \item Beginnen mit \lstinline!CF::!
+  \item Beginnen mit \lstinline!CF::!\pause
     \begin{itemize}
     \item Hintergrund: \lstinline!CF::Background!
     \item Minimalgröße der Bildelemente: \lstinline!CF::MinimumSize!
-    \item[\vdots]
+    \item[\vdots]\pause
     \end{itemize}
    \item Im Beispiel: \lstinline!CF::Background = [b -1]!
 
      Setze \textbf{b}rightness (Helligkeit) auf Minimalwert (=Schwarz).
-  \end{itemize}
+  \end{itemize}\pause
 Startsymbol: 
 \begin{itemize}
 \item Festgelegt mit \lstinline!startshape!
@@ -256,14 +273,14 @@ Startsymbol:
 \begin{frame}{Terminale}
 \begin{columns}
 \column{5cm}
-  Drei verschiedene Terminale:
+  Drei verschiedene Terminale:\pause
   \begin{enumerate}
-  \item \lstinline!CIRCLE!
-  \item \lstinline!SQUARE!
-  \item \lstinline!TRIANGLE!
+  \item \lstinline!CIRCLE!\pause
+  \item \lstinline!SQUARE!\pause
+  \item \lstinline!TRIANGLE!\pause
   \end{enumerate}
  \begin{itemize}
- \item Alle haben Seitenlänge 1
+ \item Alle haben Seitenlänge 1\pause
  \item Alle werden zentriert an $(0,0)$ gezeichnet
  \end{itemize}
 \column{5cm}
@@ -317,28 +334,28 @@ rule {
 \usebox\mybox
 };
   \begin{itemize}
-  \item Heißen jetzt \lstinline!shape!
-  \item Produktionsregeln: \lstinline!rule {...}! 
+  \item Heißen jetzt \lstinline!shape!\pause
+  \item Produktionsregeln: \lstinline!rule {...}! \pause
   \item Im Beispiel
     \begin{itemize}
-    \item Nichtterminal: \lstinline!T!
+    \item Nichtterminal: \lstinline!T!\pause
     \item Produktionsregel: Ersetze \lstinline!T! durch
       \begin{itemize}
       \item Ein Viereck \lstinline!SQUARE!
       \item Einen Kreis \lstinline!CIRCLE!
       \item Drei \lstinline!T!
       \end{itemize}
-    \end{itemize}
+    \end{itemize}\pause
   \item Mehrere \lstinline{rule} können hintereinander stehen.
-  \item Welche Regel angewendet wird, wird \emph{zufällig} entschieden
+  \item Welche Regel angewendet wird, wird \emph{zufällig} entschieden\pause
   \item Fertig: Keine Nichtterminale mehr \emph{oder} Alle Bildelemente zu klein
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Nichtterminale: Beispiel}
 \begin{columns}
-  \column{4cm}
-  \lstinputlisting{./code/circle_triangle.cf}
+  \onslide<2>{\column{4cm}
+  \lstinputlisting{./code/circle_triangle.cf}}
   \column{4cm}
   \begin{center}
     \fbox{\includegraphics[width=\linewidth]{./images/circle_triangle.png}}
@@ -348,16 +365,16 @@ rule {
 
 \begin{frame}{Transformationen}
   \begin{itemize}
-  \item Für Matheprofis: Affine Transformation + Farbveränderung
-  \item Hinter jedem Element, eckige Klammern mit Anweisungen
+  \item Für Matheprofis: Affine Transformation + Farbveränderung\pause
+  \item Hinter jedem Element, eckige Klammern mit Anweisungen\pause
   \item Notationsreihenfolge egal. Immer:
     \begin{enumerate}
     \item Verschieben
     \item Rotieren
     \item Skalieren
     \item Reflektieren
-    \end{enumerate}
-  \item Doppelte Klammern: Reihenfolge zählt
+    \end{enumerate}\pause
+  \item Doppelte Klammern: Reihenfolge zählt\pause
   \item Werden angewendet \emph{nachdem} das Element fertig gezeichnet ist
   \end{itemize}
 \end{frame}
@@ -375,18 +392,18 @@ rule {
 
 \begin{frame}[fragile]{Transformationen: Beispiel}
   \begin{columns}
-    \column{3cm}
+    \onslide<1->\column{3cm}
     \lstinputlisting{./code/transformation1.cf}
     \begin{center}
       \fbox{\includegraphics[width=\linewidth]{./images/transformation1.png}}
     \end{center}
-    \column{3cm}
+    \onslide<2->\column{3cm}
     \lstinputlisting{./code/transformation2.cf}
     \vspace{-0.75cm}
     \begin{center}
       \fbox{\includegraphics[width=\linewidth]{./images/transformation2.png}}
     \end{center}
-    \column{3cm}
+    \onslide<3->\column{3cm}
     \lstinputlisting{./code/transformation3.cf}
     \begin{center}
       \fbox{\includegraphics[width=\linewidth]{./images/transformation3.png}}
@@ -398,12 +415,12 @@ rule {
 \begin{frame}{Transformationen: Beispiel}
   Skalierungen: nach dem Verschieben angewendet
   \begin{columns}
-    \column{5cm}
+    \onslide<2->\column{5cm}
     \lstinputlisting{./code/scaling_wrong.cf}
     \begin{center}
       \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_wrong.png}}
     \end{center}
-    \column{5cm}
+    \onslide<3->\column{5cm}
     \lstinputlisting{./code/scaling_right.cf}
     \begin{center}
       \fbox{\includegraphics[width=0.7\linewidth]{./images/scaling_right.png}}
@@ -428,10 +445,10 @@ rule {
   \item[Helligkeit] \lstinline!b! {\small $n$}, $n\in [-1,1]$.
   \item[Transparenz] \lstinline!a! {\small $n$}, $n\in [-1,1]$.
   \end{description}
-\end{block}
+\end{block}\pause
 Alternative Form: Zwei Zahlen. Zum Beispiel \lstinline!h! {\small $p$ $z$}, $p\in [-1,1]$:\\ Farbton in Richtung $z$ ändern.
 
-\alert{Achtung:} Für \lstinline!CF::Background! und \lstinline!startshape! werden absolute Werte gesetzt.
+\alert{Achtung:} Für \lstinline!CF::Background! werden absolute Werte gesetzt.
 \end{frame}
 
 \begin{frame}{Transformationen: Beispiel}
