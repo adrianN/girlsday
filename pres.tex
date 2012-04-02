@@ -453,9 +453,9 @@ Alternative Form: Zwei Zahlen. Zum Beispiel \lstinline!h! {\small $p$ $z$}, $p\i
 
 \begin{frame}{Transformationen: Beispiel}
   \begin{columns}
-   \column{6cm}
+   \onslide<2>\column{6cm}
    \lstinputlisting{./code/transformation5.cf}
-   \column{4cm}
+   \onslide<1->\column{4cm}
   \begin{center}
     \fbox{\includegraphics[width=\linewidth]{./images/transformation5.png}}
   \end{center} 
@@ -464,10 +464,10 @@ Alternative Form: Zwei Zahlen. Zum Beispiel \lstinline!h! {\small $p$ $z$}, $p\i
 
 \begin{frame}{Regeln mit Nichtterminalen}
 Transformationen werden \emph{nach} dem Zeichnen angewendet\\
-$\longrightarrow$ Können sich ``stapeln''
+$\longrightarrow$ Können sich ``stapeln''\pause
 \begin{columns}
 \column{6cm}
-\lstinputlisting{./code/rekursion2.cf}
+\lstinputlisting{./code/rekursion2.cf}\pause
 \column{4cm}
 \begin{center}
 \fbox{\includegraphics[width=\linewidth]{./images/rekursion2.png}}
@@ -479,9 +479,9 @@ In jeder Ersetzung $1.2$-Mal heller, $0.8$-Mal kleiner.
 \begin{frame}{Regeln mit Nichtterminalen}
   Besonders verwirrend: Koordinatensystem ändert sich!
 \begin{columns}
-\column{6cm}
+\onslide<2->\column{6cm}
 \lstinputlisting{./code/rekursion1.cf}
-\column{4cm}
+\onslide<3->\column{4cm}
 \begin{center}
   \fbox{\includegraphics[width=\linewidth]{./images/rekursion1.png}}
 \end{center}
